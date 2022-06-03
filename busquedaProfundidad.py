@@ -81,9 +81,9 @@ if __name__ == "__main__":
     g2 = Grafo(6, directed=False) #Definicion del la longitud del grafo
     """
     Grafo tiene 6
-    nodo 1: tiene el conjunto de nodos (6, 4)
+    nodo 1: tiene el conjunto de nodos (3, 1) (4, 1) (2, 1)
     nodo #:
-    recorrido del nodo 6:  empieza 6->4->3->5->1->2
+    recorrido del nodo 6:  empieza 1->4
     """
     g2.agregarNodo(1, 3)
     g2.agregarNodo(1, 4)
@@ -108,9 +108,9 @@ if __name__ == "__main__":
     g3 = Grafo(7, directed=False) #Definicion del la longitud del grafo
     """
     Grafo tiene 6
-    nodo 1: tiene el conjunto de nodos (1, 2)
+    nodo 1: tiene el conjunto de nodos (2, 1)
     nodo #:
-    recorrido del nodo 1 al 4 :  empieza 1->2->3->6->5->4
+    recorrido del nodo 1 al 3 :  empieza 1->2->3
     """
     g3.agregarNodo(1, 2)
     g3.agregarNodo(2, 3)
