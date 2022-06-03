@@ -27,11 +27,13 @@ class Grafo:#se crea aa clase grafo
 
     def dfs(self, nodoInicio, objetivo, recorrido = [], visita = set()):
         recorrido.append(nodoInicio)
-        visita.add(nodoInicio)
+        visita.add(nodoInicio) #Se agrega el nodo de inicio al comienzo de nuestra ruta transversal y lo marcamos como visitado
         if nodoInicio == objetivo:
-            return recorrido
+            return recorrido 
         for (nodoVecino, peso) in self.m_conjuntoDato[nodoInicio]:
-            if nodoVecino not in visita:
+            if nodoVecino not in visita: 
+                """se tçatraviesa los vecinos del nodo de inicio que aún no han sido 
+                    visitados y se llama a la función recursivamente para cada uno de ellos"""
                 resultadoNodo = self.dfs(nodoVecino, objetivo, recorrido, visita)
                 if resultadoNodo is not None:
                     return resultadoNodo
@@ -50,13 +52,14 @@ if __name__ == "__main__":
     ############################################
     # Se agrega el nodo partiendo desde la longitud de 1
     print("------------------------------PRUEBA 1------------------------------")
-    g = Grafo(6, directed=False)
+    g = Grafo(6, directed=False) # Gráfico no dirigido que representa con 5 nodos
     """
     Grafo tiene 5
     nodo 1: tiene el conjunto de nodos (1, 2) (1, 5) (1, 3)
     nodo #:
     recorrido del nodo 1 al 5 :  empieza 1->2->5
     """
+    # Se agrega todos los bordes del grafo
     g.agregarNodo(1, 3)
     g.agregarNodo(1, 5)
     g.agregarNodo(1, 2)
@@ -66,5 +69,59 @@ if __name__ == "__main__":
     g.print_conjuntoDato()
 
     listaRuta = []
-    listaRuta = g.dfs(1, 5)
-    print(f"La ruta transversal del nodo 0 al nodo 3 es: {listaRuta}")
+    listaRuta = g.dfs(1, 5) # Encontrar una ruta de nodo 1 a nodo 5
+    print(f"La ruta transversal del nodo 1 al nodo 5 es: {listaRuta}") # Imprime la lista del recorrido
+    
+
+    ############################################
+    ####               Prueba 2              ### 
+    ############################################
+    # Se agrega el nodo partiendo desde la longitud de 1
+    print("------------------------------PRUEBA 2------------------------------")
+    g2 = Grafo(6, directed=False) #Definicion del la longitud del grafo
+    """
+    Grafo tiene 6
+    nodo 1: tiene el conjunto de nodos (6, 4)
+    nodo #:
+    recorrido del nodo 6:  empieza 6->4->3->5->1->2
+    """
+    g2.agregarNodo(1, 3)
+    g2.agregarNodo(1, 4)
+    g2.agregarNodo(1, 2)
+    g2.agregarNodo(2, 1)
+    g2.agregarNodo(2, 4)
+    g2.agregarNodo(3, 1)
+    g2.agregarNodo(3, 1)
+    g2.agregarNodo(4, 1)
+    g2.agregarNodo(4, 2)
+    
+    g2.print_conjuntoDato()
+
+    listaRuta = []
+    listaRuta = g2.dfs(1, 4) # Encontrar una ruta de nodo 1 a nodo 4
+    print(f"La ruta transversal del nodo 1 al nodo 4 es: {listaRuta}") # Imprime la lista del recorrido
+
+    ############################################
+    ####               Prueba 3              ### 
+    ############################################
+    print("------------------------------PRUEBA 3------------------------------")
+    g3 = Grafo(7, directed=False) #Definicion del la longitud del grafo
+    """
+    Grafo tiene 6
+    nodo 1: tiene el conjunto de nodos (1, 2)
+    nodo #:
+    recorrido del nodo 1 al 4 :  empieza 1->2->3->6->5->4
+    """
+    g3.agregarNodo(1, 2)
+    g3.agregarNodo(2, 3)
+    g3.agregarNodo(2, 6)
+    g3.agregarNodo(6, 5)
+    g3.agregarNodo(5, 2)
+    g3.agregarNodo(4, 5)
+
+    g3.print_conjuntoDato()
+
+    listaRuta = []
+    listaRuta = g3.dfs(1, 3) # Encontrar una ruta de nodo 1 a nodo 3
+    print(f"La ruta transversal del nodo 1 al nodo 3 es: {listaRuta}") # Imprime la lista del recorrido
+    
