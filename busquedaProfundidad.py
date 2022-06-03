@@ -27,12 +27,14 @@ class Grafo:#se crea aa clase grafo
 
     def dfs(self, nodoInicio, objetivo, recorrido = [], visita = set()):
         recorrido.append(nodoInicio)
-        visita.add(nodoInicio) #Se agrega el nodo de inicio al comienzo de nuestra ruta transversal y lo marcamos como visitado
-        if nodoInicio == objetivo:
+        visita.add(nodoInicio) 
+	"""Se agrega el nodo de inicio al comienzo de nuestra ruta transversal y lo marcamos como visitado
+		Condición en donde verifica si el nodo de inicio es igual al objetivo este retornará la lista del recorrido """
+        if nodoInicio == objetivo: 
             return recorrido 
-        for (nodoVecino, peso) in self.m_conjuntoDato[nodoInicio]:
+        for (nodoVecino, peso) in self.m_conjuntoDato[nodoInicio]: 
             if nodoVecino not in visita: 
-                """se tçatraviesa los vecinos del nodo de inicio que aún no han sido 
+                """se atraviesa los vecinos del nodo de inicio que aún no han sido 
                     visitados y se llama a la función recursivamente para cada uno de ellos"""
                 resultadoNodo = self.dfs(nodoVecino, objetivo, recorrido, visita)
                 if resultadoNodo is not None:
