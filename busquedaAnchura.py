@@ -34,7 +34,7 @@ class Grafo: #se crea aa clase grafo
         cola.put(nodoInicio)
         visita.add(nodoInicio)
 
-        #mientras no esté vacia la lista realiza la busqueda
+        #Mientras no esté vacia la lista realiza la busqueda
         while not cola.empty(): #empty genera una excepción de una cola vacía
             nodoActual = cola.get() #get elimina y/o devuelve un dato de la cola
             print(nodoActual, end = " ") #se imprime la cola de datos
